@@ -1,0 +1,41 @@
+{
+  "name": "Converter Studio",
+  "author": {
+    "name": "Converter Studio",
+    "email": "support@converter.studio",
+    "url": "https://converter.studio"
+  },
+  "defaultLocale": "en",
+  "private": false,
+  "location": {
+    "support": {
+      "ticket_sidebar": {
+        "url": "assets/iframe.html",
+        "flexible": true
+      }
+    }
+  },
+  "version": "1.0.0",
+  "frameworkVersion": "2.0",
+  "domainWhitelist": ["converter.studio"],
+  "parameters": [
+    {
+      "name": "apiKey",
+      "type": "text",
+      "required": true,
+      "secure": true,
+      "scopes": ["header"]
+    },
+    {
+      "name": "maxCredits",
+      "type": "number",
+      "required": false,
+      "default": 10
+    },
+    {
+      "name": "baseUrl",
+      "type": "hidden",
+      "required": false
+    }
+  ]
+}

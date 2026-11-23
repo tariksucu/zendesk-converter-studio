@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  pull_request:
+    paths-ignore:
+      - '**.md'
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '**.md'
+
+# Cancel in-progress runs for the same branch/PR.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+
+      # Dependencies' install scripts are not needed to check, test or build.
+      - name: Install
+        run: npm ci --ignore-scripts
+
+      - name: Type check
+        run: npm run typecheck
+
+      - name: Lint
+        run: npm run lint
+
+      # Unit and component tests with a fake ZAF client (which also plays Zendesk's proxy) and a
+      # fake Converter Studio API: no network.
+      - name: Test
+        run: npm test
+
+      # dist/ as Zendesk loads it, checked, and zipped like `zcli apps:package` does.
+      - name: Build and package
+        run: npm run package
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: zendesk-app
+          path: tmp/*.zip
+          retention-days: 7

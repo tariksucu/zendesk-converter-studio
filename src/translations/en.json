@@ -1,0 +1,22 @@
+{
+  "app": {
+    "name": "Converter Studio",
+    "short_description": "Convert ticket attachments: HEIC to JPG, MOV to MP4, DOCX to PDF and more",
+    "long_description": "**Converter Studio** turns the files customers send into files your team can open. In the ticket sidebar it lists the ticket's attachments and converts the one you pick: iPhone HEIC photos to JPG, MKV, MOV and AVI videos to MP4, Word, Excel and PowerPoint files to PDF, PDFs to Word or to a smaller PDF, screenshots and scans to text, camera RAW photos, ebooks, audio and more than 60 formats in all.\n\n**How it works**  \n\n1. Open a ticket and find Converter Studio in the apps sidebar.\n2. Pick what an attachment should become and click Convert.\n3. Download the result or open it in a new tab. To keep it on the ticket, attach it to a reply or an internal note.  \n\nThe original attachment is never changed or removed.\n\n**What you need**\n\nA [Converter Studio](https://converter.studio) account and an API key. Conversions use the account's credits: a free account gets a few credits every day, and most files cost 1 credit. See [plans and credit packs](https://converter.studio/pricing). An admin sets the most credits one conversion may use; a dearer conversion is refused and nothing is charged.\n\n**About Converter Studio**\n\nConverter Studio is a file conversion service for the web, desktop and mobile, with a [public API](https://converter.studio/developers) that this app uses.\n\n**Your data**\n\n- When an agent converts an attachment, Converter Studio's server downloads that one file from its Zendesk link (or, if your Zendesk requires a sign-in for attachments, receives it from the agent's browser), converts it, deletes the original once it is converted and the result after 6 hours.\n- The app reads the ticket's attachment list and one account setting (whether attachments require a sign-in) with the agent's own Zendesk session. It sends Converter Studio nothing else: no ticket text, no customer or agent details. It never writes to the ticket.\n- Zendesk stores the API key as a secure setting and sends it only to converter.studio; agents never see it.\n- [Privacy policy](https://converter.studio/privacy) · [Terms](https://converter.studio/terms) · Support: support@converter.studio",
+    "installation_instructions": "1. Sign in to [Converter Studio](https://converter.studio) (or create a free account) and make an API key on your [account page](https://converter.studio/account#api-keys).\n2. In the Zendesk Marketplace, click Install and choose your Zendesk account.\n3. Paste the key into **Converter Studio API key**.\n4. Optionally change **Most credits one conversion may use** (10 by default; most files cost 1 credit).\n5. Choose which roles or groups may use the app, if you want to, and click **Install**.  \n\nThe app then shows in the ticket sidebar of every ticket. If your Zendesk requires a sign-in to download attachments, agents save an attachment first and choose the saved file in the app.",
+    "parameters": {
+      "apiKey": {
+        "label": "Converter Studio API key",
+        "helpText": "Make one on your Converter Studio account page (converter.studio/account#api-keys). Zendesk stores it as a secure setting and sends it to converter.studio only; agents never see it."
+      },
+      "maxCredits": {
+        "label": "Most credits one conversion may use",
+        "helpText": "Most files cost 1 credit; long videos cost more. A conversion priced above this is refused and nothing is charged."
+      },
+      "baseUrl": {
+        "label": "API address",
+        "helpText": "Leave empty to use https://converter.studio/api."
+      }
+    }
+  }
+}

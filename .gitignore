@@ -1,0 +1,8 @@
+node_modules/
+# Build output (npm run build): made from the source, never committed.
+dist/
+# zcli's packaging folder and the app's zip (npm run package).
+tmp/
+*.zip
+coverage/
+.DS_Store

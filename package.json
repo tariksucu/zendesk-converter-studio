@@ -1,0 +1,56 @@
+{
+  "name": "zendesk-converter-studio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Converter Studio for Zendesk Support: convert a ticket's attachments (HEIC photos, MKV videos, Word files and more) to the format you need, right from the ticket sidebar.",
+  "license": "MIT",
+  "author": "Converter Studio <support@converter.studio> (https://converter.studio)",
+  "homepage": "https://converter.studio/developers",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tariksucu/zendesk-converter-studio.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tariksucu/zendesk-converter-studio/issues",
+    "email": "support@converter.studio"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "dev": "vite build --watch --mode development",
+    "build": "vite build",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "check": "npm run typecheck && npm run lint && npm test && npm run build && node tools/check-package.mjs",
+    "package": "npm run build && node tools/check-package.mjs && node tools/zip.mjs"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@testing-library/dom": "10.4.2",
+    "@testing-library/react": "16.3.3",
+    "@types/node": "24.19.2",
+    "@types/react": "18.3.31",
+    "@types/react-dom": "18.3.7",
+    "@vitejs/plugin-react": "6.3.0",
+    "@zendeskgarden/react-buttons": "9.16.1",
+    "@zendeskgarden/react-forms": "9.16.1",
+    "@zendeskgarden/react-loaders": "9.16.1",
+    "@zendeskgarden/react-notifications": "9.16.1",
+    "@zendeskgarden/react-theming": "9.16.1",
+    "@zendeskgarden/react-typography": "9.16.1",
+    "eslint": "10.15.0",
+    "eslint-plugin-react-hooks": "7.1.1",
+    "globals": "17.14.0",
+    "jsdom": "30.1.3",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "styled-components": "6.6.0",
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.73.0",
+    "vite": "8.3.8",
+    "vitest": "5.1.1"
+  }
+}
